@@ -30,14 +30,14 @@ function renderAbout() {
     $("#content").append(
         $(`
             <div class="aboutContainer">
-                <h2>Gestionnaire de bookmarks</h2>
+                <h2>Gestionnaire de favoris</h2>
                 <hr>
                 <p>
-                    Petite application de gestion de bookmarks à titre de démonstration
+                    Petite application de gestion de favoris à titre de démonstration
                     d'interface utilisateur monopage réactive.
                 </p>
                 <p>
-                    Auteur: Nicolas Chourot
+                    Auteur: Jean-Michel Cantin
                 </p>
                 <p>
                     Collège Lionel-Groulx, automne 2024
