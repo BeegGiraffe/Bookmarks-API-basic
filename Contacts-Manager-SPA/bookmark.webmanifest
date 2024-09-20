@@ -1,0 +1,7 @@
+{
+    "name": "Bookmarks Manager",
+    "short_name": "Bookmarks Manager",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
