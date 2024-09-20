@@ -14,6 +14,11 @@ function Init_UI() {
     $('#aboutCmd').on("click", function () {
         renderAbout();
     });
+    $('#DDIcon').on("click", async function () {
+        // Je n'ai pas trouvé le moyen de chercher tous les catégories
+        let bookmarks = await API_GetBookmarks();
+        updateDropDownMenu();
+    });
 }
 
 function renderAbout() {
@@ -110,14 +115,20 @@ async function renderDeleteBookmarkForm(id) {
     if (bookmark !== null) {
         $("#content").append(`
         <div class="bookmarkdeleteForm">
-            <h4>Effacer le bookmark suivant?</h4>
+            <h4>Effacer le favori suivant?</h4>
             <br>
             <div class="bookmarkRow" bookmark_id=${bookmark.Id}">
                 <div class="bookmarkContainer">
                     <div class="bookmarkLayout">
-                        <div class="bookmarkTitle">${bookmark.Title}</div>
-                        <div class="bookmarkUrl">${bookmark.Url}</div>
-                        <div class="bookmarkCategory">${bookmark.Category}</div>
+                        <div>
+                            <link ref="icon" href="${bookmark.Url}"/>
+                            <span class="bookmarkTitle">${bookmark.Title}</span>
+                        </div>
+                        <span><a href="${bookmark.Url}">${bookmark.Category}</a></span>
+                    </div>
+                    <div class="bookmarkCommandPanel">
+                        <span class="editCmd cmdIcon fa fa-pencil" editBookmarkId="${bookmark.Id}" title="Modifier ${bookmark.Title}"></span>
+                        <span class="deleteCmd cmdIcon fa fa-trash" deleteBookmarkId="${bookmark.Id}" title="Effacer ${bookmark.Title}"></span>
                     </div>
                 </div>  
             </div>   
